@@ -1,0 +1,34 @@
+name: Build package and documentation
+
+on:
+  pull_request:
+    branches:
+      - Main
+      - workflows
+  push:
+    branches:
+      - Main
+      - workflows
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checks out the repository
+        uses: actions/checkout@v3.3.0
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.10.0
+        with:
+          distribution: 'microsoft'
+          java-version: '17'
+      - name: Build with Maven
+        run: mvn package
+      - name: Upload the build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: target/
+      - name: Upload the documentation artifact
+        uses: actions/upload-artifact@v2
+        with:
+            name: documentation-artifact
+            path: target/apidocs/
