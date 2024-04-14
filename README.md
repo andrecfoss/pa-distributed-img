@@ -22,6 +22,7 @@ Language: <strong>JAVA</strong>
 ### Preview
 
 When the program starts, it opens 3 windows using these ports:
+<br>
 ![image](https://github.com/andrecfoss/pa-distributed-img/assets/134842813/2782ac79-f86e-45be-a43c-f48cee405df0)
 
 <br>
